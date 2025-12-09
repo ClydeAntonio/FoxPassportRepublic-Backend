@@ -11,5 +11,15 @@ services:
     volumes:
       - mongodb_data:/data/db
 
+  redis:
+    image: redis
+    container_name: redis
+    ports:
+      - "6379:6379"
+    command: redis-server --requirepass mypassword
+    volumes:
+      - redis_data:/data
+
 volumes:
   mongodb_data:
+  redis_data:
